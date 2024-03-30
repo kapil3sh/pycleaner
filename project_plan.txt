@@ -1,0 +1,2 @@
+develop functions for data exploration
+develop functions to display the infos using matplotlib

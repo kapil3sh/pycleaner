@@ -17,5 +17,6 @@ def get_info(df):
     new_df = (pd.DataFrame([x.split() for x in lines[5:-2]], columns=lines[3].split())
        .drop('Count',axis=1)
        .rename(columns={'Non-Null':'Non-Null Count'}))
-    print (new_df)
+    return (new_df)
+
 
