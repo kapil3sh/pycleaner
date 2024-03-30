@@ -18,5 +18,3 @@ def get_info(df):
        .drop('Count',axis=1)
        .rename(columns={'Non-Null':'Non-Null Count'}))
     return (new_df)
-
-
