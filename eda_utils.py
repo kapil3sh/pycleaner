@@ -1,4 +1,5 @@
-
+import pandas as pd
+import io
 
 def describe_df(df):
     print(df.describe())
@@ -6,10 +7,15 @@ def describe_df(df):
 
 
 def check_null(df):
-    print(df.isnull.sum(axis=0))
-    return df.isnull.sum(axis=0)
+    print(df.isnull().sum())
+    return df.isnull().sum()
 
 def get_info(df):
-    print(df.info())
-    return df.info()
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    lines = buffer.getvalue().splitlines()
+    new_df = (pd.DataFrame([x.split() for x in lines[5:-2]], columns=lines[3].split())
+       .drop('Count',axis=1)
+       .rename(columns={'Non-Null':'Non-Null Count'}))
+    print (new_df)
 

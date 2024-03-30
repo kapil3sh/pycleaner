@@ -15,3 +15,15 @@ def read_parquet(path):
 def read_json(path):
     df = pd.read_json(path)
     return df
+
+def file_import(path):
+    path = path
+
+    if '.csv' in path :
+        return read_csv(path)
+    elif ('.xlsx' in path ) or ('.xls' in path) :
+        return read_excel(path)
+    elif ('.parquet' in path) or ('.pqt' in path):
+        return read_parquet(path)
+    elif '.json' in path:
+        return read_json(path)
